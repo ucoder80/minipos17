@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\TransectionController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +16,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::post("register",[UserController::class,"created_user"]);
+Route::post("login",[UserController::class,"login"]);
+Route::get("logout",[UserController::class,"logout"]);
+
+Route::controller(StoreController::class)->group(function(){
+    Route::get("store","index");
+    Route::get("store/edit/{id}","edit");
+    Route::post("store/add","add");
+    Route::post("store/update/{id}","update");
+    Route::delete("store/delete/{id}","delete");
+});
+
+Route::controller(TransectionController::class)->group(function(){
+    Route::get("transection","index");
+    // Route::get("transection/edit/{id}","edit");
+    Route::post("transection/add","add");
+    // Route::post("transection/update/{id}","update");
+    // Route::delete("transection/delete/{id}","delete");
 });
