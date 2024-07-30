@@ -10,8 +10,7 @@ class Bill extends Model
     use HasFactory;
     protected $fillable = [
         'bill_id',
-        'name',
-        'qty',
-        'price',
+        'customer_name',
+        'customer_tel',
     ];
 }
