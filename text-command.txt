@@ -18,3 +18,5 @@ Git
     - git pull                  : ຄຳສັ່ງ ອັບເດດ ຊ໋ອດໂຄດລ່າສຸດຈາກ github
 
     - git add . && git commit -m "ຂໍ້ຄວາມ" && git push
+
+
