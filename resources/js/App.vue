@@ -8,14 +8,14 @@
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
-        <Sidebar/>
+        <Sidebar v-if="store.get_token"/>
             <!-- Layout container -->
             <div class="layout-page">
                 <!-- Navbar -->
 
                 <nav
                     class="layout-navbar container-xxl navbar-detached navbar navbar-expand-xl align-items-center bg-navbar-theme"
-                    id="layout-navbar"
+                    id="layout-navbar" v-if="store.get_token"
                 >
                     <div
                         class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none"
@@ -181,7 +181,7 @@
                     <!-- / Content -->
 
                     <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
+                    <footer class="content-footer footer bg-footer-theme" v-if="store.get_token">
                         <div class="container-xxl">
                             <div
                                 class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column"
@@ -249,6 +249,12 @@
     <!-- / Layout wrapper -->
 </template>
 <script>
-export default {};
+import { useStore } from "./Store/auth";
+export default {
+    setup(){
+        const store = useStore();
+        return {store};
+    }
+}
 </script>
 <style lang=""></style>
