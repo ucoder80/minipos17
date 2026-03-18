@@ -9,10 +9,9 @@ class Bill_list extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'bill_id',
         'name',
-        'image',
         'qty',
-        'prie_buy',
-        'prie_sell',
+        'price'
     ];
 }

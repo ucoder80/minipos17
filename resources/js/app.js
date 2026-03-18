@@ -8,8 +8,11 @@ import { createPinia } from 'pinia';
 
 const pinia = createPinia();
 
+import Pagination from './Components/Pagination.vue';
+
 const app = createApp(App);
 app.use(pinia);
-app.component('Sidebar', SideMenu);
+app.component("Sidebar", SideMenu);
+app.component("Pagination",Pagination);
 app.use(router);
 app.mount('#app-vue');

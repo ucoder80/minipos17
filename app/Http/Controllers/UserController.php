@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use JWTAuth;
 
+
 class UserController extends Controller
 {
      public function created_user(Request $request){

@@ -12,7 +12,9 @@ class Store extends Model
     protected $fillable = [
         'bill_id',
         'name',
+        'image',
         'qty',
-        'price',
+        'price_buy',
+        'price_sell'
     ];
 }
