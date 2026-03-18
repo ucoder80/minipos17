@@ -152,15 +152,10 @@
                                             class="dropdown-divider my-1"
                                         ></div>
                                     </li>
-                                    <li>
-                                        <a
-                                            class="dropdown-item"
-                                            href="javascript:void(0);"
-                                        >
-                                            <i
-                                                class="icon-base bx bx-power-off icon-md me-3"
-                                            ></i
-                                            ><span>Log Out</span>
+                                     <li> 
+                                        <a class="dropdown-item" @click="LogOut" href="javascript:void(0);">
+                                        <i class="bx bx-power-off me-2"></i>
+                                        <span class="align-middle">ອອກຈາກລະບົບ</span>
                                         </a>
                                     </li>
                                 </ul>
@@ -249,12 +244,40 @@
     <!-- / Layout wrapper -->
 </template>
 <script>
-import { useStore } from "./Store/auth";
+import axios from "axios";
+import { useStore } from "./Store/auth"
 export default {
-    setup(){
-        const store = useStore();
-        return {store};
-    }
+    setup() {
+      const store = useStore();
+      return { store }
+    },
+    data() {
+      return {
+        url: window.location.origin
+      }
+    },
+    methods: {
+      LogOut(){
+          axios.get("api/logout",{ headers: { Authorization:'Bearer '+this.store.get_token }
+        }).then((res)=>{
+            if(res.data.success){
+              // ເຄຼຍຂໍ້ມູນໃນ Localstorage
+              localStorage.removeItem("web_token")
+              localStorage.removeItem("web_user")
+
+            // ເຄຍຂໍ້ມູນມໃນ Pinia
+            this.store.remove_token()
+            this.store.remove_user
+
+            // ໄປໜ້າ login
+            this.$router.push("/login")
+
+            }
+        }).catch((error)=>{
+          console.log(error)
+        })
+      }
+    },
 }
 </script>
 <style lang=""></style>

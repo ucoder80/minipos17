@@ -114,13 +114,13 @@ export default {
         }
     },
     methods:{
-      SHPass(){
-          if(this.showpass == 'password'){
-            this.showpass = 'text'
-          } else {
-            this.showpass = 'password'
-          }
-      },
+      // SHPass(){
+      //     if(this.showpass == 'password'){
+      //       this.showpass = 'text'
+      //     } else {
+      //       this.showpass = 'password'
+      //     }
+      // },
       Login(){
           if(this.UserLogin.email !="" && this.UserLogin.password !=""){
               axios.post("api/login",this.UserLogin).then((res)=>{
