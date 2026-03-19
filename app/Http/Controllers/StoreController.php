@@ -41,9 +41,23 @@ class StoreController extends Controller
 
         try {
             
+            // ກຳນົດເສັ້ນທາງ ບັນທຶກຮູບພາບ
+            $upload_path = "assets/img";
+
+            if($request->file("image")){
+                // ປ່ຽນຊື່ຮູບພາບ
+                $new_name_img = time().".".$request->image->getClientOriginalExtension();
+
+                // ອັບໂຫຼດຮູບພາບ
+                $request->image->move(public_path($upload_path),$new_name_img);
+
+            } else {
+                $new_name_img = "";
+            }
+
             $store = new Store([
                 "name" => $request->name,
-                // "image"=>
+                "image"=> $new_name_img,
                 "qty" => $request->qty,
                 "price_buy" => $request->price_buy,
                 "price_sell" => $request->price_sell
