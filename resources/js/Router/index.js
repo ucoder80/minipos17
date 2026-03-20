@@ -2,12 +2,12 @@
 import  { createRouter, createWebHistory } from 'vue-router';
 
 import Store from '../Pages/Store.vue';
-import Pos from '../Pages/Pos.vue';
-import Transection from '../Pages/Transection.vue';
-import Report from '../Pages/Report.vue';  
-import NotFound from '../Pages/NotFound.vue';  
+// import Pos from '../Pages/Pos.vue';
+// import Transection from '../Pages/Transection.vue';
+// import Report from '../Pages/Report.vue';  
+// import NotFound from '../Pages/NotFound.vue';  
 import Login from '../Pages/Login.vue';
-import Register from "../Pages/Register.vue";  
+// import Register from "../Pages/Register.vue";  
 
 import { useStore } from "../Store/auth";   
 
@@ -20,7 +20,7 @@ export const routes = [
     {
         name: "register",
         path: "/register",
-        component: Register
+        component: ()=>import('../Pages/Register.vue')
     },
     {
         path:"/",

@@ -44,8 +44,8 @@ Route::controller(TransectionController::class)->group(function(){
 });
 
 
-Route::controller(BillController::class)->group(function(){
-    Route::get("bills/print/{id}","created_bill");
+Route::controller(BIllController::class)->group(function(){
+    Route::get("bills/print/{id}","print_bill");
 });
 
 
