@@ -1,4 +1,6 @@
 <template lang="">
+     <DashGrap />
+    <div class="card">
     <h5 class="card-header">ລາຍການ ສະຕ໋ອກສິນຄ້າ</h5>
     <div class="card-body">
         <!-- {{ShowForm}} -->
@@ -106,6 +108,7 @@
 
             <!-- <button @click="showAlert">Hello world</button> -->
         </div>
+    </div>
     </div>
 </template>
 <script>
